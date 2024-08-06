@@ -8,9 +8,7 @@ const TurndownService = require("turndown");
 const fs = require("fs");
 const path = require("path");
 const urlModule = require("url");
-const { Console, log } = require("console");
 
-// Replace 'your-web-page-url' with the URL of the web page you want to convert
 const url =
   "https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/vxlan/cisco-nexus-9000-series-nx-os-vxlan-configuration-guide-release-103x/m_configuring_tenant_routed_multicast_93x.html";
 
@@ -47,8 +45,14 @@ axios
     const dom = new JSDOM(html);
     const document = dom.window.document;
 
-    // Initialize Turndown Service
-    const turndownService = new TurndownService();
+    // Initialize Turndown Service with escape option disabled
+    const turndownService = new TurndownService({
+      headingStyle: "atx",
+      codeBlockStyle: "fenced",
+      bulletListMarker: "-",
+      strongDelimiter: "**",
+      linkStyle: "referenced",
+    });
 
     // Directory to save images
     const imageDir = "./images";
@@ -63,22 +67,19 @@ axios
       if (src) {
         const alt = img.getAttribute("alt") || "Image";
         const imageUrl = new URL(src, url).href;
-        console.log(imageUrl);
         const filename = await downloadImage(imageUrl, imageDir);
-        console.log(filename);
         if (filename) {
           const markdownImage = `![${alt}](./images/${filename})`;
-          console.log(markdownImage);
+          console.log(`Replacing image src: ${src} with ${markdownImage}`);
           const imgElement = document.createElement("span");
-          console.log(imgElement);
-
           imgElement.textContent = markdownImage;
-          console.log(imgElement);
           img.replaceWith(imgElement);
         } else {
           // If image download fails, replace with an empty alt text image placeholder
+          const markdownImage = `![${alt}](${src})`;
+          console.log(`Replacing image src: ${src} with ${markdownImage}`);
           const imgElement = document.createElement("span");
-          imgElement.textContent = `![${alt}](${src})`;
+          imgElement.textContent = markdownImage;
           img.replaceWith(imgElement);
         }
       }
