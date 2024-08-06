@@ -210,7 +210,7 @@ While BGP EVPN provides the control plane for unicast routing, ngMVPN provides s
 
 Figure 1. VXLAN EVPN TRM
 
-!\[Image\](./images/501498.jpg)
+![Image](./images/501498.jpg)
 
 With TRM enabled, multicast forwarding in the underlay is leveraged to replicate VXLAN encapsulated routed multicast traffic. A Default Multicast Distribution Tree (Default-MDT) is built per-VRF. This is an addition to the existing multicast groups for Layer-2 VNI Broadcast, Unknown Unicast, and Layer-2 multicast replication group. The individual multicast group addresses in the overlay are mapped to the respective underlay multicast address for replication and transport. The advantage of using a BGP-based approach allows the VXLAN BGP EVPN fabric with TRM to operate as fully distributed Overlay Rendezvous-Point (RP), with the RP presence on every edge-device (VTEP).
 
