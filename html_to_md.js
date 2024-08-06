@@ -60,13 +60,18 @@ axios
     for (const img of images) {
       const src = img.getAttribute("src");
       if (src) {
-        const alt = img.getAttribute("alt") || "";
+        const alt = img.getAttribute("alt") || "Image";
         const imageUrl = new URL(src, url).href;
         const filename = await downloadImage(imageUrl, imageDir);
         if (filename) {
           const markdownImage = `![${alt}](./images/${filename})`;
           const imgElement = document.createElement("span");
           imgElement.textContent = markdownImage;
+          img.replaceWith(imgElement);
+        } else {
+          // If image download fails, replace with an empty alt text image placeholder
+          const imgElement = document.createElement("span");
+          imgElement.textContent = `![${alt}](${src})`;
           img.replaceWith(imgElement);
         }
       }
@@ -75,7 +80,7 @@ axios
     // Convert HTML to Markdown
     const markdown = turndownService.turndown(document.body.innerHTML);
 
-    // Save the Markdown
+    // Save the Markdown to a file (replace 'output.md' with your desired file path)
     fs.writeFile("output.md", markdown, (err) => {
       if (err) {
         console.error("Error writing the Markdown file:", err);
