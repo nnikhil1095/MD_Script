@@ -8,6 +8,7 @@ const TurndownService = require("turndown");
 const fs = require("fs");
 const path = require("path");
 const urlModule = require("url");
+const { Console, log } = require("console");
 
 // Replace 'your-web-page-url' with the URL of the web page you want to convert
 const url =
@@ -62,11 +63,17 @@ axios
       if (src) {
         const alt = img.getAttribute("alt") || "Image";
         const imageUrl = new URL(src, url).href;
+        console.log(imageUrl);
         const filename = await downloadImage(imageUrl, imageDir);
+        console.log(filename);
         if (filename) {
           const markdownImage = `![${alt}](./images/${filename})`;
+          console.log(markdownImage);
           const imgElement = document.createElement("span");
+          console.log(imgElement);
+
           imgElement.textContent = markdownImage;
+          console.log(imgElement);
           img.replaceWith(imgElement);
         } else {
           // If image download fails, replace with an empty alt text image placeholder
