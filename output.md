@@ -204,7 +204,7 @@ While BGP EVPN provides the control plane for unicast routing, ngMVPN provides s
 
 Figure 1. VXLAN EVPN TRM
 
-!\[Image\](./images/501498.jpg)
+![Image](./images/501498.jpg)
 
 With TRM enabled, multicast forwarding in the underlay is leveraged to replicate VXLAN encapsulated routed multicast traffic. A Default Multicast Distribution Tree (Default-MDT) is built per-VRF. This is an addition to the existing multicast groups for Layer-2 VNI Broadcast, Unknown Unicast, and Layer-2 multicast replication group. The individual multicast group addresses in the overlay are mapped to the respective underlay multicast address for replication and transport. The advantage of using a BGP-based approach allows the VXLAN BGP EVPN fabric with TRM to operate as fully distributed Overlay Rendezvous-Point (RP), with the RP presence on every edge-device (VTEP).
 
@@ -409,8 +409,6 @@ Configure the loopback for the TRM VRFs with the following commands on all devic
 
 ### DETAILED STEPS
 
-
-
 Command or Action
 
 Purpose
@@ -499,8 +497,6 @@ Configure the external rendezvous point (RP) IP address within the TRM VRFs on a
 
 ### DETAILED STEPS
 
-
-
 Command or Action
 
 Purpose
@@ -566,8 +562,6 @@ Configuration of Tenant Routed Multicast (TRM) leaf node for RP Everywhere.
 7.  ip pim rp-address ip-address-of-router group-list group-range-prefix
 
 ### DETAILED STEPS
-
-
 
 Command or Action
 
@@ -667,8 +661,6 @@ Configuring the TRM Border Leaf Node for RP Anywhere with PIM Anycast.
 16. ipv6 pim anycast-rp anycast-rp-address address-of-rp
 
 ### DETAILED STEPS
-
-
 
 Command or Action
 
@@ -858,8 +850,6 @@ Use this procedure to configure an external router for RP Everywhere.
 
 ### DETAILED STEPS
 
-
-
 Command or Action
 
 Purpose
@@ -1046,8 +1036,6 @@ Configuring a TRM leaf node for RP Everywhere with MSDP peering.
 
 ### DETAILED STEPS
 
-
-
 Command or Action
 
 Purpose
@@ -1147,8 +1135,6 @@ Use this procedure to configure a TRM border leaf for RP Everywhere with PIM Any
 17. ip msdp peer ip-address connect-source loopback
 
 ### DETAILED STEPS
-
-
 
 Command or Action
 
@@ -1345,8 +1331,6 @@ Configure MSDP peering between border node and external RP router.
 
 ### DETAILED STEPS
 
-
-
 Command or Action
 
 Purpose
@@ -1517,8 +1501,6 @@ To enable/disable TRM v4/v6, PIM v4/v6 must be enabled.
 
 ### Procedure
 
-
-
 Command or Action
 
 Purpose
@@ -1544,8 +1526,6 @@ feature ngmvpn
 Enables the Next-Generation Multicast VPN (ngMVPN) control plane. New address family commands become available in BGP.
 
 **Note**
-
-
 
 The no feature ngmvpn command will not remove MVPN configuration under BGP.
 
@@ -1596,8 +1576,6 @@ Builds the default multicast distribution tree for the VRF VNI (Layer 3 VNI).
 The multicast group is used in the underlay (core) for all multicast routing within the associated Layer 3 VNI (VRF).
 
 **Note**
-
-
 
 We recommend that underlay multicast groups for Layer 2 VNI, default MDT, and data MDT not be shared. Use separate, non-overlapping groups.
 
@@ -1719,13 +1697,9 @@ The vri id range is from 1 to 65535.
 
 **Note**
 
-
-
 This command is mandatory on vPC leaf nodes, and value has to be same across vPC pair and unique in TRM domain. Also the value must not collide with any site-id value.
 
 **Note**
-
-
 
 This command is required on BGWs if site-id value is greater than 2 bytes, and value has to be same across all same site BGWs and unique in TRM domain. Also the value must not collide with any site-id value.
 
@@ -1744,8 +1718,6 @@ The no option disables the TRM v4/v6 on the specified VRF.
 Run this command under the sub-mode of new L3VNI config.
 
 **Note**
-
-
 
 This command is applicable only to VRFs configured with new-L3VNI.
 
@@ -1875,8 +1847,6 @@ Creates an IP PIM neighbor policy with a suitable route-map to deny any IPv4 add
 
 **Note**
 
-
-
 Do not use Distributed Anycast Gateway for PIM Peerings.
 
 **Step 31**
@@ -1966,8 +1936,6 @@ The VXLAN BGP EVPN spine must be configured. See [Configuring iBGP for EVPN on t
 
 ### DETAILED STEPS
 
-
-
 Command or Action
 
 Purpose
@@ -1994,8 +1962,6 @@ Configure the route-map.
 
 **Note**
 
-
-
 The route-map keeps the next-hop unchanged for EVPN routes
 
 - Required for eBGP
@@ -2012,8 +1978,6 @@ set ip next-hop unchanged
 Set next hop address.
 
 **Note**
-
-
 
 The route-map keeps the next-hop unchanged for EVPN routes
 
@@ -2062,8 +2026,6 @@ Configure retain route-target all under address-family IPv4 MVPN \[global\].
 
 **Note**
 
-
-
 Required for eBGP. Allows the spine to retain and advertise all MVPN routes when there are no local VNIs configured with matching import route targets.
 
 **Step 8**
@@ -2097,8 +2059,6 @@ disable-peer-as-check
 Disables checking the peer AS number during route advertisement. Configure this parameter on the spine for eBGP when all leafs are using the same AS but the spines have a different AS than leafs.
 
 **Note**
-
-
 
 Required for eBGP.
 
@@ -2134,8 +2094,6 @@ Configure route reflector.
 
 **Note**
 
-
-
 Required for iBGP with route-reflector.
 
 **Step 14**
@@ -2149,8 +2107,6 @@ route-map permitall out
 Applies route-map to keep the next-hop unchanged.
 
 **Note**
-
-
 
 Required for eBGP.
 
@@ -2169,8 +2125,6 @@ VXLAN EVPN must be configured.
 The rendezvous point (RP) must be configured.
 
 ### Procedure
-
-
 
 Command or Action
 
@@ -2197,8 +2151,6 @@ feature ngmvpn
 Enables the Next-Generation Multicast VPN (ngMVPN) control plane. New address family commands become available in BGP.
 
 **Note**
-
-
 
 The no feature ngmvpn command will not remove MVPN configuration under BGP.
 
@@ -2243,8 +2195,6 @@ ip multicast overlay-distributed-dr
 Enables distributed anchor DR function on this VTEP.
 
 **Note**
-
-
 
 The NVE interface must be shut and unshut while configuring this command.
 
@@ -2646,8 +2596,6 @@ VXLAN EVPN must be configured.
 
 ### Procedure
 
-
-
 Command or Action
 
 Purpose
@@ -2673,8 +2621,6 @@ feature ngmvpn
 Enables EVPN/MVPN feature.
 
 **Note**
-
-
 
 The no feature ngmvpn command will not remove MVPN configuration under BGP.
 
@@ -2744,8 +2690,6 @@ This section provides steps to configure TRM with vPC support. Beginning with Ci
 18. (Optional) delay restore interface-vlan seconds
 
 ### DETAILED STEPS
-
-
 
 Command or Action
 
@@ -2863,15 +2807,11 @@ Configures the IPv4 address for the remote end of the vPC peer-keepalive link.
 
 **Note**
 
-
-
 The system does not form the vPC peer link until you configure a vPC peer-keepalive link.
 
 The management ports and VRF are the defaults.
 
 **Note**
-
-
 
 We recommend that you configure a separate VRF and use a Layer 3 port from each vPC peer device in that VRF for the vPC peer-keepalive link.
 
@@ -2995,8 +2935,6 @@ Enables the delay restore timer for SVIs. We recommend tuning this value when th
 
 ### DETAILED STEPS
 
-
-
 Command or Action
 
 Purpose
@@ -3093,8 +3031,6 @@ Carves the TCAM region for the ACL database.
 
 **Note**
 
-
-
 This TCAM carving command is required to enable TRM forwarding for N9K-X9636C-RX line cards only. With no TCAM region carved for mac-ifacl , the TCAM resources are used for TRM instead.
 
 **Step 10**
@@ -3108,8 +3044,6 @@ hardware access-list tcam region vxlan 10
 Assigns the the TCAM region for use by a VXLAN.
 
 **Note**
-
-
 
 This TCAM carving command is required to enable TRM forwarding for N9K-X9636C-RX line cards only.
 
@@ -3155,15 +3089,11 @@ Configures the IPv4 address for the remote end of the vPC peer-keepalive link.
 
 **Note**
 
-
-
 The system does not form the vPC peer link until you configure a vPC peer-keepalive link.
 
 The management ports and VRF are the defaults.
 
 **Note**
-
-
 
 We recommend that you configure a separate VRF and use a Layer 3 port from each vPC peer device in that VRF for the vPC peer-keepalive link.
 
@@ -3292,8 +3222,6 @@ This procedure enables/disables the flex stats counters in a VXLAN TRM setup.
 
 ### DETAILED STEPS
 
-
-
 Command or Action
 
 Purpose
@@ -3321,8 +3249,6 @@ Enables the flex stats on TRM.
 The no option disables the flex stats on TRM.
 
 **Note**
-
-
 
 To reflect the changes done during configuration, ensure that the switch is reloaded.
 
@@ -3391,8 +3317,6 @@ This command requires switch reloading.
 4.  \[ no\] mdt data vxlan <group-range-1> \[threshold\] \[route-map <value> <policy-name_1> \] \[seq <sequence-number>\]
 
 ### DETAILED STEPS
-
-
 
 Command or Action
 
