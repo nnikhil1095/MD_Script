@@ -45,13 +45,19 @@ axios
     const dom = new JSDOM(html);
     const document = dom.window.document;
 
-    // Initialize Turndown Service with escape option disabled
-    const turndownService = new TurndownService({
-      headingStyle: "atx",
-      codeBlockStyle: "fenced",
-      bulletListMarker: "-",
-      strongDelimiter: "**",
-      linkStyle: "referenced",
+    // Initialize Turndown Service with custom rules
+    const turndownService = new TurndownService();
+
+    // Add a custom rule to handle image tags
+    turndownService.addRule("image", {
+      filter: "img",
+      replacement: function (content, node) {
+        const src = node.getAttribute("src");
+        const alt = node.getAttribute("alt") || "Image";
+        const imageUrl = new URL(src, url).href;
+        const filename = path.basename(urlModule.parse(imageUrl).pathname);
+        return `![${alt}](./images/${filename})`;
+      },
     });
 
     // Directory to save images
