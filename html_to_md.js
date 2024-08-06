@@ -78,7 +78,7 @@ axios
           const markdownImage = `![${alt}](./images/${filename})`;
           console.log(`Replacing image src: ${src} with ${markdownImage}`);
           const imgElement = document.createElement("span");
-          imgElement.textContent = markdownImage;
+          imgElement.innerHTML = markdownImage; // Use innerHTML instead of textContent
           img.replaceWith(imgElement);
         } else {
           // If image download fails, replace with an empty alt text image placeholder
