@@ -84,7 +84,7 @@ Book Contents
 
 Find Matches in This Book
 
- !\[Clear Contents of Search\](./images/ic\_clear\_gray.png)
+ ![Clear Contents of Search](./images/ic_clear_gray.png)
 
 cdc.util.ensureNamespace("cdc.rc.savedoc"); cdc.rc.savedoc.isLoggedIn = false; cdc.rc.savedoc.save = "Save"; cdc.rc.savedoc.saved = "Saved"; Save
 
@@ -119,7 +119,7 @@ Chapter Title
 
 Print
 
- !\[Clear Contents of Search\](./images/ic\_clear\_gray.png)
+ ![Clear Contents of Search](./images/ic_clear_gray.png)
 
 Results
 -------
@@ -210,7 +210,7 @@ While BGP EVPN provides the control plane for unicast routing, ngMVPN provides s
 
 Figure 1. VXLAN EVPN TRM
 
-!\[Image\](./images/501498.jpg)
+![Image](./images/501498.jpg)
 
 With TRM enabled, multicast forwarding in the underlay is leveraged to replicate VXLAN encapsulated routed multicast traffic. A Default Multicast Distribution Tree (Default-MDT) is built per-VRF. This is an addition to the existing multicast groups for Layer-2 VNI Broadcast, Unknown Unicast, and Layer-2 multicast replication group. The individual multicast group addresses in the overlay are mapped to the respective underlay multicast address for replication and transport. The advantage of using a BGP-based approach allows the VXLAN BGP EVPN fabric with TRM to operate as fully distributed Overlay Rendezvous-Point (RP), with the RP presence on every edge-device (VTEP).
 
@@ -221,7 +221,7 @@ About Tenant Routed Multicast Mixed Mode
 
 Figure 2. TRM Layer 2/Layer 3 Mixed Mode
 
-!\[Image\](./images/501659.jpg)
+![Image](./images/501659.jpg)
 
 About Tenant Routed Multicast with IPv6 Overlay
 -----------------------------------------------
@@ -496,7 +496,7 @@ Configuring a Rendezvous Point Inside the VXLAN Fabric
 
 Configure the loopback for the TRM VRFs with the following commands on all devices (VTEP). Ensure it is reachable within EVPN (advertise/redistribute).
 
-!\[Image\](./images/502089.jpg)
+![Image](./images/502089.jpg)
 
 ### SUMMARY STEPS
 
@@ -591,7 +591,7 @@ Configuring an External Rendezvous Point
 
 Configure the external rendezvous point (RP) IP address within the TRM VRFs on all devices (VTEP). In addition, ensure reachability of the external RP within the VRF via the border node.
 
-!\[Image\](./images/502090.jpg)
+![Image](./images/502090.jpg)
 
 ### SUMMARY STEPS
 
@@ -642,7 +642,7 @@ Configuring RP Everywhere with PIM Anycast
 
 RP Everywhere configuration with PIM Anycast solution.
 
-!\[Image\](./images/502091.jpg)
+![Image](./images/502091.jpg)
 
 For information about configuring RP Everywhere with PIM Anycast, see:
 
@@ -1134,7 +1134,7 @@ For information about configuring RP Everywhere with MSDP Peering, see:
 *   [Configuring an External Router for RP Everywhere with MSDP Peering](#id_82576)
     
 
-!\[Image\](./images/502092.jpg)
+![Image](./images/502092.jpg)
 
 *   [Configuring a TRM Leaf Node for RP Everywhere with MSDP Peering](#id_82515)
 *   [Configuring a TRM Border Leaf Node for RP Everywhere with MSDP Peering](#id_82524)
@@ -1608,7 +1608,7 @@ This procedure enables the Tenant Routed Multicast (TRM) feature. TRM operates p
 
 To forward multicast between senders and receivers on the Layer 3 cloud and the VXLAN fabric on TRM vPC border leafs, the VIP/PIP configuration must be enabled. For more information, see Configuring VIP/PIP.
 
-!\[Image\](./images/note.gif)  
+![Image](./images/note.gif)  
 
 **Note**
 
@@ -3392,7 +3392,7 @@ Flex Stats for TRM
 
 Beginning with Cisco NX-OS Release 10.3(1)F, the Real-time/flex statistics for TRM is supported for Overlay routes on Cisco Nexus 9300-X Cloud Scale Switches. Flex Stats is not supported for Underlay Routes
 
-!\[Image\](./images/note.gif)  
+![Image](./images/note.gif)  
 
 **Note**
 
@@ -3518,7 +3518,7 @@ To enable switching to data MDT group based on real-time flow rate, the followin
 
 hardware profile multicast flex-stats-enable
 
-!\[Image\](./images/note.gif)  
+![Image](./images/note.gif)  
 
 **Note**
 
@@ -3646,11 +3646,11 @@ Displays the resource usage of data MDT and any failed allocations.
 
 ### Was this Document Helpful?
 
-Yes No [!\[Feedback\](./images/Feedback\_OceanBlue.png)Feedback](javascript: void\(0\))
+Yes No [![Feedback](./images/Feedback_OceanBlue.png)Feedback](javascript: void\(0\))
 
 ### Contact Cisco
 
-*   [Open a Support Case](https://mycase.cloudapps.cisco.com/start?prodDocUrl=)!\[login required\](./images/icon\_lock\_small.png)
+*   [Open a Support Case](https://mycase.cloudapps.cisco.com/start?prodDocUrl=)![login required](./images/icon_lock_small.png)
 *   (Requires a [Cisco Service Contract](//www.cisco.com/c/en/us/services/order-services.html))
 
 jQuery(document).ready(function() { var getURL=jQuery("#eotLetUsHelpProdDocUrl").attr("href"), domInd = location.href.indexOf('cisco.com') ; if ( domInd > -1 && domInd < location.href.search(/\\w\\/\\w/) ) { getURL += encodeURI(location.href); } jQuery("#eotLetUsHelpProdDocUrl").attr("href",getURL); });
@@ -3661,4 +3661,4 @@ var eottdatp = document.getElementsByClassName('eot-tdatp'); if (eottdatp && eot
 
 if(document.querySelector('#privacy-manager')!=null){ document.querySelector('#privacy-manager').href='#cookies'; }
 
-!\[Image\](./images/12345)
+![Image](./images/12345)

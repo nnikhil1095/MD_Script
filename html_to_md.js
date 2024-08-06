@@ -72,13 +72,18 @@ axios
       const src = img.getAttribute("src");
       if (src) {
         const alt = img.getAttribute("alt") || "Image";
+
         const imageUrl = new URL(src, url).href;
+
         const filename = await downloadImage(imageUrl, imageDir);
         if (filename) {
-          const markdownImage = `![${alt}](./images/${filename})`;
-          console.log(`Replacing image src: ${src} with ${markdownImage}`);
+          console.log(`alt: ![${alt}]`);
+          console.log(`filename: ${filename}`);
+          const htmlImage = `<img src="./images/${filename}" alt="${alt}">`;
+          console.log(`Replacing image src: ${src} with ${htmlImage}`);
           const imgElement = document.createElement("span");
-          imgElement.innerHTML = markdownImage; // Use innerHTML instead of textContent
+          imgElement.innerHTML = htmlImage; // Use innerHTML instead of textContent
+          console.log(`HTML output: ${imgElement.outerHTML}`);
           img.replaceWith(imgElement);
         } else {
           // If image download fails, replace with an empty alt text image placeholder
