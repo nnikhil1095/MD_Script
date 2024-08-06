@@ -1,6 +1,3 @@
-// First, install the required libraries using npm
-// npm install axios jsdom turndown
-
 const axios = require("axios");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
@@ -46,18 +43,12 @@ axios
     const document = dom.window.document;
 
     // Initialize Turndown Service with custom rules
-    const turndownService = new TurndownService();
-
-    // Add a custom rule to handle image tags
-    turndownService.addRule("image", {
-      filter: "img",
-      replacement: function (content, node) {
-        const src = node.getAttribute("src");
-        const alt = node.getAttribute("alt") || "Image";
-        const imageUrl = new URL(src, url).href;
-        const filename = path.basename(urlModule.parse(imageUrl).pathname);
-        return `![${alt}](./images/${filename})`;
-      },
+    const turndownService = new TurndownService({
+      headingStyle: "atx",
+      codeBlockStyle: "fenced",
+      bulletListMarker: "-",
+      strongDelimiter: "**",
+      linkStyle: "referenced",
     });
 
     // Directory to save images
@@ -66,7 +57,7 @@ axios
       fs.mkdirSync(imageDir);
     }
 
-    // Process images: Download images and convert image tags to Markdown format
+    // Process images
     const images = document.querySelectorAll("img");
     for (const img of images) {
       const src = img.getAttribute("src");
@@ -82,7 +73,7 @@ axios
           const htmlImage = `<img src="./images/${filename}" alt="${alt}">`;
           console.log(`Replacing image src: ${src} with ${htmlImage}`);
           const imgElement = document.createElement("span");
-          imgElement.innerHTML = htmlImage; // Use innerHTML instead of textContent
+          imgElement.innerHTML = htmlImage;
           console.log(`HTML output: ${imgElement.outerHTML}`);
           img.replaceWith(imgElement);
         } else {
