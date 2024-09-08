@@ -1,154 +1,99 @@
--   [Skip to content][1]
--   [Skip to search][2]
--   [Skip to footer][3]
+Tenant Routed Multicast in Cisco Nexus 9000 VXLAN BGP EVPN Data Center Fabrics - Fundamental Concepts and Architectures
+=======================================================================================================================
 
--   [Cisco.com Worldwide][4]
--   [Products and Services][5]
--   [Solutions][6]
--   [Support][7]
--   [Learn][8]
--   [Explore Cisco][9]
--   [How to Buy][10]
--   [Partners Home][11]
--   [Partner Program][12]
--   [Support][13]
--   [Tools][14]
--   [Find a Cisco Partner][15]
--   [Meet our Partners][16]
--   [Become a Cisco Partner][17]
+Save
 
--   [][18]
--   [Products & Services][19]
--   [Switches][20]
--   [Data Center Switches][21]
--   [Cisco Nexus 9000 Series Switches][22]
--   [White Papers][23]
-
-if (window.cdc === undefined) { window.cdc = {}; } if (cdc.breadcrumb === undefined) { cdc.breadcrumb = (function () { let clone = document.querySelector('#fw-breadcrumb').cloneNode(true); let appendClone = function () { let hasBreadcrumb = document.querySelector('#fw-breadcrumb') !== null, firstMarquee = document.querySelectorAll('.dmc-mq')\[0\]; if (!hasBreadcrumb && firstMarquee !== undefined) { firstMarquee.querySelector('.frame .inset').insertBefore(this.clone, firstMarquee.querySelector('.frame .inset').firstElementChild); } }; return { clone: clone, appendClone: appendClone } }()); } //DE380224 var anchorChild = document.getElementsByTagName("a"); for(var i=0; i<anchorChild.length; i++){ if(anchorChild\[i\].getAttribute("itemprop")=="item") { if ( anchorChild\[i\].href.includes("%3Clocale%3E") ){ let anchorChildHREF = anchorChild\[i\].href; let docLocale = document.querySelector('meta\[name="locale"\]').getAttribute('content'); let docLanguage = document.querySelector('meta\[name="language"\]').getAttribute('content'); var docSeparator; if ((docLocale.toLowerCase() == "us") && (docLanguage.toLowerCase() == "en")) { docSeparator="/"; } else { docSeparator="\_"; } let anchorURLReplace = docLanguage.toLowerCase() + docSeparator + docLocale.toLowerCase(); anchorChildHREF = anchorChildHREF.replace("%3Clocale%3E", anchorURLReplace); anchorChild\[i\].setAttribute('href', anchorChildHREF); } } }
-
-# Tenant Routed Multicast in Cisco Nexus 9000 VXLAN BGP EVPN Data Center Fabrics - Fundamental Concepts and Architectures
-
-// initialize dictionary for i18n var pagelanguage = "en\_us".replace("\_","-"); var pagelocale = pagelanguage; Granite.I18n.setLocale(pagelocale.toLowerCase()); Granite.I18n.setUrlPrefix("/etc/designs/cdc/fw/w/responsive\_components/eot/i18n/"); Granite.I18n.setUrlSuffix(".1.json"); cdc.util.ensureNamespace("cdc.rc"); cdc.rc.isEotToc = true;
-
-if (typeof(cdc) == "undefined") cdc={}; if (typeof(cdc.translations) == "undefined") cdc.translations={};
-
-<div class="versionsdd"> <button class="versionbutton" aria-haspopup="true" aria-expanded="false" aria-labelledby="other versions" class="version"><label></label></button> <ul class="versionlist" aria-labelledby="other versions"> <% let pageUrl = window.location.pathname.replace("/content/","/c/").toLowerCase(); if (false) pageUrl = pageUrl.substring(0,pageUrl.lastIndexOf("/"))+".html"; for(let i=0; i< data.length; i++) { let item = data\[i\], myurl = item.linkUrl, urlm = myurl.replace("/content/","/c/");; mytitle = item.linkTitle; myclass= urlm.toLowerCase() == pageUrl ? "class=\\"selected\\"":""; %> <li><a href="${myurl}" ${myclass}>${mytitle}</a></li> <% } %> </ul> </div>
-
-cdc.util.ensureNamespace("cdc.rc.savedoc"); cdc.rc.savedoc.isLoggedIn = false; cdc.rc.savedoc.save = "Save"; cdc.rc.savedoc.saved = "Saved"; Save
-
-[Log in][24] to Save Content
-
-/\* Specifically for books at the simple overlay trigger class on English locale pages, if its a non english locale do not add the trigger. \*/ if(jQuery('body').hasClass('cdc-books') && !jQuery('a').hasClass('nonEnglish')) { jQuery('.translations').addClass('simpleOverlay-trigger'); }
+[Log in](/c/login/index.html?referer=/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html) to Save Content
 
 Download
 
 Print
 
-cdc.translations.map = "{en-us=https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html, x-default=https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html}";//storing the map for use in the JS cdc.translations.locale="en\_us";
-
 ### Available Languages
 
 ### Download Options
 
--   [
+*   [
     
-    PDF][25] (3.2 MB)  
+    PDF](/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.pdf) (3.2 MB)  
     View with Adobe Reader on a variety of devices
     
 
 Updated:November 22, 2023
-
-jQuery(document).ready(function(){ if(jQuery("body").hasClass("cdc-eot-toc") && jQuery(".cdc-eot-toc").find(".DocumentHistory").length > 0){ jQuery(".cdc-eot-toc .seeRevisions").show(); if(jQuery(window).width() >= 768){ jQuery(".cdc-eot-toc .updatedDate").nextAll(".bullet").show(); } }else{ jQuery(".cdc-eot-toc .infobar .bullet").hide(); jQuery(".cdc-eot-toc .seeRevisions"); jQuery(".cdc-eot-toc .updatedDate"); } })
 
 Bias-Free Language
 
 ### Bias-Free Language
 
-The documentation set for this product strives to use bias-free language. For the purposes of this documentation set, bias-free is defined as language that does not imply discrimination based on age, disability, gender, racial identity, ethnic identity, sexual orientation, socioeconomic status, and intersectionality. Exceptions may be present in the documentation due to language that is hardcoded in the user interfaces of the product software, language used based on RFP documentation, or language that is used by a referenced third-party product. [Learn more][26] about how Cisco is using Inclusive Language.
+The documentation set for this product strives to use bias-free language. For the purposes of this documentation set, bias-free is defined as language that does not imply discrimination based on age, disability, gender, racial identity, ethnic identity, sexual orientation, socioeconomic status, and intersectionality. Exceptions may be present in the documentation due to language that is hardcoded in the user interfaces of the product software, language used based on RFP documentation, or language that is used by a referenced third-party product. [Learn more](https://www.cisco.com/c/en/us/about/social-justice/inclusive-language-policy.html) about how Cisco is using Inclusive Language.
 
 Contact Cisco
 
--   [Open a TAC Case Online][27]
--   US/Canada 800-553-2447
--   [Worldwide Support Phone Numbers][28]
--   [All Tools][29]
--    [![Feedback](./images/Feedback_OceanBlue.png) Feedback][30]
+*   [Open a TAC Case Online](https://mycase.cloudapps.cisco.com/case)
+*   US/Canada 800-553-2447
+*   [Worldwide Support Phone Numbers](//www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html)
+*   [All Tools](//www.cisco.com/c/en/us/support/web/tools-catalog.html)
+*    [![Feedback](./images/Feedback_OceanBlue.png) Feedback](https://ciscocx.qualtrics.com/jfe/form/SV_be0fHnqDoKM7sto?Ref=)
 
-var test=""; if(test!=undefined && test.trim().length>0){ mboxCreate('en-us\_dg\_large\_eot','type=default',''); }else{ mboxCreate('en-us\_dg\_large\_eot','type=default'); }
+Save
 
-$( document ).ready(function() { var fwt\_element = $("#fw-content").find(".fwt-fatfooter"); fwt\_element.addClass("noprint"); }); if (window.cdc === undefined) { window.cdc = {}; } if (cdc.rac === undefined) { cdc.rac = {}; } if (cdc.rac.getOverrideConfig === undefined) { cdc.rac.getOverrideConfig = {}; } else { //var configData = { "ratingsOnly": false, "objId":31, "source":"dummy source" }; var configData = { "ratingsOnly": false}; cdc.rac.getOverrideConfig(configData); } if (typeof(cdc) == "undefined") cdc={}; if (typeof(cdc.translations) == "undefined") cdc.translations={};
-
-<div class="versionsdd"> <button class="versionbutton" aria-haspopup="true" aria-expanded="false" aria-labelledby="other versions" class="version"><label></label></button> <ul class="versionlist" aria-labelledby="other versions"> <% let pageUrl = window.location.pathname.replace("/content/","/c/").toLowerCase(); if (false) pageUrl = pageUrl.substring(0,pageUrl.lastIndexOf("/"))+".html"; for(let i=0; i< data.length; i++) { let item = data\[i\], myurl = item.linkUrl, urlm = myurl.replace("/content/","/c/");; mytitle = item.linkTitle; myclass= urlm.toLowerCase() == pageUrl ? "class=\\"selected\\"":""; %> <li><a href="${myurl}" ${myclass}>${mytitle}</a></li> <% } %> </ul> </div>
-
-cdc.util.ensureNamespace("cdc.rc.savedoc"); cdc.rc.savedoc.isLoggedIn = false; cdc.rc.savedoc.save = "Save"; cdc.rc.savedoc.saved = "Saved"; Save
-
-[Log in][31] to Save Content
-
-/\* Specifically for books at the simple overlay trigger class on English locale pages, if its a non english locale do not add the trigger. \*/ if(jQuery('body').hasClass('cdc-books') && !jQuery('a').hasClass('nonEnglish')) { jQuery('.translations').addClass('simpleOverlay-trigger'); }
+[Log in](/c/login/index.html?referer=/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html) to Save Content
 
 Download
 
 Print
 
-cdc.translations.map = "{en-us=https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html, x-default=https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html}";//storing the map for use in the JS cdc.translations.locale="en\_us";
-
 ### Available Languages
 
 ### Download Options
 
--   [
+*   [
     
-    PDF][32] (3.2 MB)  
+    PDF](/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.pdf) (3.2 MB)  
     View with Adobe Reader on a variety of devices
     
 
 Updated:November 22, 2023
 
-jQuery(document).ready(function(){ if(jQuery("body").hasClass("cdc-eot-toc") && jQuery(".cdc-eot-toc").find(".DocumentHistory").length > 0){ jQuery(".cdc-eot-toc .seeRevisions").show(); if(jQuery(window).width() >= 768){ jQuery(".cdc-eot-toc .updatedDate").nextAll(".bullet").show(); } }else{ jQuery(".cdc-eot-toc .infobar .bullet").hide(); jQuery(".cdc-eot-toc .seeRevisions"); jQuery(".cdc-eot-toc .updatedDate"); } })
-
-cdc.util.ensureNamespace("cdc.rc"); cdc.rc.toctitle = "Table of Contents";
-
 #### Table of Contents
 
--   [What you will learn?][33]
--   [Multicast Routing Fundamentals][34]
-    -   [The Need for Multicast Routing][35]
-    -   [Internet Group Management Protocol (IGMP)][36]
-    -   [Protocol Independent Multicast (PIM)][37]
--   [Multicast Routing in VXLAN BGP EVPN Fabrics Without Tenant Routed Multicast][38]
-    -   [Multicast in the Underlay][39]
-    -   [Intra-Subnet Multicast in the Overlay][40]
-    -   [IGMP Snooping in VXLAN BGP EVPN Fabrics][41]
-    -   [Multicast Routing with External PIM Routers][42]
-    -   [VXLAN Multicast Routing – Router on Stick][43]
--   [Introduction to BGP/MPLS Multicast VPNs (MVPN)][44]
--   [BGP/MPLS MVPN – Draft-Rosen][45]
--   [MP-BGP NG-MVPN][46]
-    -   [Overview][47]
-    -   [Control Plane Function][48]
-    -   [Packet Types][49]
--   [VXLAN EVPN Tenant Routed Multicast Architecture][50]
-    -   [TRM Modes][51]
-        -   [Layer 3 Mode TRM][52]
-        -   [Layer 2/3 Mode TRM][53]
-    -   [L3 TRM PIM Rendezvous Point Placement][54]
-        -   [Deployment Models][55]
-    -   [L3 TRM Multicast Underlay Network][56]
-    -   [L3 TRM Multicast Overlay Network][57]
-    -   [L3 TRM with Anycast RP Control Plane Operation][58]
-    -   [L3 TRM with External RP Control Plane Operation][59]
--   [Configuring VXLAN EVPN Tenant Routed Multicast][60]
--   [Multi-Site TRM][61]
--   [Optimized TRM with Data Multicast Distribution Trees][62]
--   [Implementing VXLAN EVPN TRM using NDFC][63]
-    -   [NDFC Overview][64]
-    -   [Deploying TRM using NDFC][65]
--   [Conclusion][66]
--   [Legal Information][67]
+*   [What you will learn?](#Whatyouwilllearn "Whatyouwilllearn")
+*   [Multicast Routing Fundamentals](#MulticastRoutingFundamentals "MulticastRoutingFundamentals")
+    *   [The Need for Multicast Routing](#TheNeedforMulticastRouting "TheNeedforMulticastRouting")
+    *   [Internet Group Management Protocol (IGMP)](#InternetGroupManagementProtocolIGMP "InternetGroupManagementProtocolIGMP")
+    *   [Protocol Independent Multicast (PIM)](#ProtocolIndependentMulticastPIM "ProtocolIndependentMulticastPIM")
+*   [Multicast Routing in VXLAN BGP EVPN Fabrics Without Tenant Routed Multicast](#MulticastRoutinginVXLANBGPEVPNFabricsWithoutTenantRoutedMulticast "MulticastRoutinginVXLANBGPEVPNFabricsWithoutTenantRoutedMulticast")
+    *   [Multicast in the Underlay](#MulticastintheUnderlay "MulticastintheUnderlay")
+    *   [Intra-Subnet Multicast in the Overlay](#IntraSubnetMulticastintheOverlay "IntraSubnetMulticastintheOverlay")
+    *   [IGMP Snooping in VXLAN BGP EVPN Fabrics](#IGMPSnoopinginVXLANBGPEVPNFabrics "IGMPSnoopinginVXLANBGPEVPNFabrics")
+    *   [Multicast Routing with External PIM Routers](#MulticastRoutingwithExternalPIMRouters "MulticastRoutingwithExternalPIMRouters")
+    *   [VXLAN Multicast Routing – Router on Stick](#VXLANMulticastRoutingRouteronStick "VXLANMulticastRoutingRouteronStick")
+*   [Introduction to BGP/MPLS Multicast VPNs (MVPN)](#IntroductiontoBGPMPLSMulticastVPNsMVPN "IntroductiontoBGPMPLSMulticastVPNsMVPN")
+*   [BGP/MPLS MVPN – Draft-Rosen](#BGPMPLSMVPNDraftRosen "BGPMPLSMVPNDraftRosen")
+*   [MP-BGP NG-MVPN](#MPBGPNGMVPN "MPBGPNGMVPN")
+    *   [Overview](#Overview "Overview")
+    *   [Control Plane Function](#ControlPlaneFunction "ControlPlaneFunction")
+    *   [Packet Types](#PacketTypes "PacketTypes")
+*   [VXLAN EVPN Tenant Routed Multicast Architecture](#VXLANEVPNTenantRoutedMulticastArchitecture "VXLANEVPNTenantRoutedMulticastArchitecture")
+    *   [TRM Modes](#TRMModes "TRMModes")
+        *   [Layer 3 Mode TRM](#Layer3ModeTRM "Layer3ModeTRM")
+        *   [Layer 2/3 Mode TRM](#Layer23ModeTRM "Layer23ModeTRM")
+    *   [L3 TRM PIM Rendezvous Point Placement](#L3TRMPIMRendezvousPointPlacement "L3TRMPIMRendezvousPointPlacement")
+        *   [Deployment Models](#DeploymentModels "DeploymentModels")
+    *   [L3 TRM Multicast Underlay Network](#L3TRMMulticastUnderlayNetwork "L3TRMMulticastUnderlayNetwork")
+    *   [L3 TRM Multicast Overlay Network](#L3TRMMulticastOverlayNetwork "L3TRMMulticastOverlayNetwork")
+    *   [L3 TRM with Anycast RP Control Plane Operation](#L3TRMwithAnycastRPControlPlaneOperation "L3TRMwithAnycastRPControlPlaneOperation")
+    *   [L3 TRM with External RP Control Plane Operation](#L3TRMwithExternalRPControlPlaneOperation "L3TRMwithExternalRPControlPlaneOperation")
+*   [Configuring VXLAN EVPN Tenant Routed Multicast](#ConfiguringVXLANEVPNTenantRoutedMulticast "ConfiguringVXLANEVPNTenantRoutedMulticast")
+*   [Multi-Site TRM](#MultiSiteTRM "MultiSiteTRM")
+*   [Optimized TRM with Data Multicast Distribution Trees](#OptimizedTRMwithDataMulticastDistributionTrees "OptimizedTRMwithDataMulticastDistributionTrees")
+*   [Implementing VXLAN EVPN TRM using NDFC](#ImplementingVXLANEVPNTRMusingNDFC "ImplementingVXLANEVPNTRMusingNDFC")
+    *   [NDFC Overview](#NDFCOverview "NDFCOverview")
+    *   [Deploying TRM using NDFC](#DeployingTRMusingNDFC "DeployingTRMusingNDFC")
+*   [Conclusion](#Conclusion "Conclusion")
+*   [Legal Information](#LegalInformation "LegalInformation")
 
-cdc.util.ensureNamespace("cdc.rc.innerSearch"); cdc.rc.innerSearch.hintText = "Search"; cdc.util.ensureNamespace("cdc.rc.tableOfContents"); cdc.rc.tableOfContents.label = "Table of Contents";
-
-!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR\_config=e.BOOMR\_config||{},e.BOOMR\_config.PageParams=e.BOOMR\_config.PageParams||{},e.BOOMR\_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR\_API\_key="GKZXC-NS3SU-A7VFH-HKBHM-U7LKH",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR\_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE \[67\]\\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(\_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d.\_boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document.\_boomrl();'>");else if(O.\_boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O.\_boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O.\_boomrl);d.close()}function a(e){window.BOOMR\_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"GKZXC-NS3SU-A7VFH-HKBHM-U7LKH";var i=document.currentScript||document.getElementsByTagName("script")\[0\],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR\_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="f655sxtimc42kzw5wzrq-f-7bcc3bd72-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"37","ak.cp":"117370","ak.ai":parseInt("271834",10),"ak.ol":"0","ak.cr":7,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"357e34d6","ak.r":43901,"ak.a2":n,"ak.m":"dsca","ak.n":"essl","ak.bpcip":"47.187.217.0","ak.cport":51490,"ak.gh":"23.205.108.199","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"reno","ak.t":"1725806179","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==+3P5un/eKkDaIjIUfNEVWgGxeP6BbOlkSAucUiR9HbqklEmfzYZoQyb6m8yi5jgsYntPqIw0WnrqrOuFV2W3UcZwduTE16NH6S74dubA3rVe3j9yGP49OMRFeSzT0pC4uhPEeDU3+GUTn+e42MyokgRlO5Vb329wvOLjr96OLQ603BlDVB1pEhFdPkE38+Ud5y6+IAE1P9H8pTg0QEkPRRL1zoNDng1Azaa3Ar/EkTjw+qBFuk8+0u5y3zckXZWxsdyiTGpsXiaP4uR9PDyY7fGw/IfizaJJdhjhalAMPQMn+3eIG/jzN2m0dDM7fD6Tos8+0sz0Xuk9R76u1ibbnP3EJYNjeipkd4ra2gLtlZFocU5RA1hRFXvfb0t8S0XEblGHgiXXyfl6PKdBstIDhsamL0TR2zEwKsshMTG38IE=","ak.pv":"513","ak.dpoabenc":"","ak.tf":i};if(""!==t)o\["ak.ruds"\]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n\[t\]||"spa\_hard"===n\[t\]))o\["ak.feo"\]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=\["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"\];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before\_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is\_complete:function(){return!0}}}}()}(window); ` `
+ 
 
 The documentation set for this product strives to use bias-free language. For the purposes of this documentation set, bias-free is defined as language that does not imply discrimination based on age, disability, gender, racial identity, ethnic identity, sexual orientation, socioeconomic status, and intersectionality. Exceptions may be present in the documentation due to language that is hardcoded in the user interfaces of the product software, language used based on RFP documentation, or language that is used by a referenced third-party product.
 
@@ -1398,87 +1343,10 @@ Nexus 9000 NX-OS TRM brings a variety of advantages, like:
 
 Legal Information
 
-Cisco and the Cisco logo are trademarks or registered trademarks of Cisco and/or its affiliates in the U.S. and other countries. To view a list of Cisco trademarks, go to this URL: [www.cisco.com/go/trademarks][68]. Third-party trademarks mentioned are the property of their respective owners. The use of the word partner does not imply a partnership relationship between Cisco and any other company. (1721R)
+Cisco and the Cisco logo are trademarks or registered trademarks of Cisco and/or its affiliates in the U.S. and other countries. To view a list of Cisco trademarks, go to this URL: [www.cisco.com/go/trademarks](//www.cisco.com/go/trademarks). Third-party trademarks mentioned are the property of their respective owners. The use of the word partner does not imply a partnership relationship between Cisco and any other company. (1721R)
 
 Any Internet Protocol (IP) addresses and phone numbers used in this document are not intended to be actual addresses and phone numbers. Any examples, command display output, network topology diagrams, and other figures included in the document are shown for illustrative purposes only. Any use of actual IP addresses or phone numbers in illustrative content is unintentional and coincidental.
 
 © 2023 Cisco Systems, Inc. All rights reserved.
 
-jQuery(document).ready(function() { if(jQuery('.unpublished').length>0){ var lastRel = "1.0"; if(jQuery('.published').length>0){ lastRel = Number(jQuery('.published td')\[0\].innerText)+1+".0"; } jQuery('.preview\_revision').text(lastRel); } }); jQuery(document).ready(function() { if (typeof(cdc) == "undefined") cdc={}; if (typeof(cdc.eot) == "undefined") cdc.eot={}; cdc.eot.isEot = true; cdc.eot.isToc = true; var linkItemsLen=jQuery("#eot-doc-wrapper link\[rel='stylesheet'\]").length; function addNewTocStyleSheet() { let fileName="/etc/designs/cdc/transformation/wemdcmt\_responsive.css", $head = jQuery("head"), linkElement = "<link rel='stylesheet' href='"+fileName+"' type='text/css' >"; $head.append(linkElement); } if (cdc.eot.isToc && ! linkItemsLen ) { addNewTocStyleSheet(); } else if(cdc.eot.isEot) { var linkItemsLen=jQuery("#eot-doc-wrapper link\[rel='stylesheet'\]").length; jQuery("#eot-doc-wrapper link\[rel='stylesheet'\]").each(function(){ var linkTag=jQuery(this); var hrefVal=jQuery(linkTag).attr("href"); if(hrefVal!=undefined && hrefVal.indexOf("support-responsive.css")==-1 && hrefVal.indexOf("\_responsive.css")==-1){ var fileName=hrefVal.substr(hrefVal.lastIndexOf("/")+1,hrefVal.length).split(".css")\[0\]; var filePath="/etc/designs/cdc/transformation/"; if(fileName=="ccimr"){ fileName="techdocs\_responsive"; }else if(fileName=="support-docs"){ fileName="support-responsive"; }else if(fileName=="framework"){ fileName="responsiveframework"; }else if(fileName=="dcmt"){ fileName="wemdcmt\_responsive"; }else if(fileName=="techdocs\_85\_11\_word"){ fileName="techdocs\_85\_11\_word"; if (cdc.eot.isToc) { addNewTocStyleSheet(); } }else{ fileName+="\_responsive"; } jQuery(linkTag).attr("href",filePath+fileName+".css"); } if(hrefVal.indexOf("support-responsive.css")>-1){ jQuery(linkTag).attr("href","/etc/designs/cdc/transformation/support-responsive.css"); } }); jQuery("#eot-doc-wrapper > table").wrap("<div></div>"); //jQuery("#eot-doc-wrapper table").parent().attr("style","overflow-x:auto !important"); jQuery("#eot-doc-wrapper table:not('.olh\_note')").parent().css({overflowX:"auto"});// commented above line coz its overriding existing inline styles } });
-
-console.log("Getting INVALID\_TAGs from data object")
-
 ### Learn more
-
-if(document.querySelector('#privacy-manager')!=null){ document.querySelector('#privacy-manager').href='#cookies'; }
-
-![Image](./images/12345)
-
-[1]: #fw-content
-[2]: #
-[3]: #fw-footer-v2
-[4]: /c/en/us/index.html
-[5]: /c/en/us/products/index.html
-[6]: //www.cisco.com/c/en/us/solutions/index.html
-[7]: /c/en/us/support/index.html
-[8]: /c/en/us/training-events.html
-[9]: //www.cisco.com/c/en/us/about/sitemap.html
-[10]: /c/en/us/buy.html
-[11]: /c/en/us/partners.html
-[12]: /c/en/us/partners/partner-with-cisco.html?ccid=cc000864&dtid=odiprc001129
-[13]: /c/en/us/partners/support-help.html
-[14]: /c/en/us/partners/tools.html
-[15]: //locatr.cloudapps.cisco.com/WWChannels/LOCATR/openBasicSearch.do
-[16]: /c/en/us/partners/connect-with-a-partner.html
-[17]: //partnersuccess.cisco.com/becomeapartner
-[18]: #
-[19]: /c/en/us/errors/403.html
-[20]: /c/en/us/products/switches/index.html
-[21]: /c/en/us/products/switches/data-center-switches/index.html
-[22]: /c/en/us/products/switches/nexus-9000-series-switches/index.html
-[23]: /c/en/us/products/switches/nexus-9000-series-switches/white-paper-listing.html
-[24]: /c/login/index.html?referer=/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html
-[25]: /c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.pdf
-[26]: https://www.cisco.com/c/en/us/about/social-justice/inclusive-language-policy.html
-[27]: https://mycase.cloudapps.cisco.com/case
-[28]: //www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
-[29]: //www.cisco.com/c/en/us/support/web/tools-catalog.html
-[30]: https://ciscocx.qualtrics.com/jfe/form/SV_be0fHnqDoKM7sto?Ref=
-[31]: /c/login/index.html?referer=/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html
-[32]: /c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.pdf
-[33]: #Whatyouwilllearn "Whatyouwilllearn"
-[34]: #MulticastRoutingFundamentals "MulticastRoutingFundamentals"
-[35]: #TheNeedforMulticastRouting "TheNeedforMulticastRouting"
-[36]: #InternetGroupManagementProtocolIGMP "InternetGroupManagementProtocolIGMP"
-[37]: #ProtocolIndependentMulticastPIM "ProtocolIndependentMulticastPIM"
-[38]: #MulticastRoutinginVXLANBGPEVPNFabricsWithoutTenantRoutedMulticast "MulticastRoutinginVXLANBGPEVPNFabricsWithoutTenantRoutedMulticast"
-[39]: #MulticastintheUnderlay "MulticastintheUnderlay"
-[40]: #IntraSubnetMulticastintheOverlay "IntraSubnetMulticastintheOverlay"
-[41]: #IGMPSnoopinginVXLANBGPEVPNFabrics "IGMPSnoopinginVXLANBGPEVPNFabrics"
-[42]: #MulticastRoutingwithExternalPIMRouters "MulticastRoutingwithExternalPIMRouters"
-[43]: #VXLANMulticastRoutingRouteronStick "VXLANMulticastRoutingRouteronStick"
-[44]: #IntroductiontoBGPMPLSMulticastVPNsMVPN "IntroductiontoBGPMPLSMulticastVPNsMVPN"
-[45]: #BGPMPLSMVPNDraftRosen "BGPMPLSMVPNDraftRosen"
-[46]: #MPBGPNGMVPN "MPBGPNGMVPN"
-[47]: #Overview "Overview"
-[48]: #ControlPlaneFunction "ControlPlaneFunction"
-[49]: #PacketTypes "PacketTypes"
-[50]: #VXLANEVPNTenantRoutedMulticastArchitecture "VXLANEVPNTenantRoutedMulticastArchitecture"
-[51]: #TRMModes "TRMModes"
-[52]: #Layer3ModeTRM "Layer3ModeTRM"
-[53]: #Layer23ModeTRM "Layer23ModeTRM"
-[54]: #L3TRMPIMRendezvousPointPlacement "L3TRMPIMRendezvousPointPlacement"
-[55]: #DeploymentModels "DeploymentModels"
-[56]: #L3TRMMulticastUnderlayNetwork "L3TRMMulticastUnderlayNetwork"
-[57]: #L3TRMMulticastOverlayNetwork "L3TRMMulticastOverlayNetwork"
-[58]: #L3TRMwithAnycastRPControlPlaneOperation "L3TRMwithAnycastRPControlPlaneOperation"
-[59]: #L3TRMwithExternalRPControlPlaneOperation "L3TRMwithExternalRPControlPlaneOperation"
-[60]: #ConfiguringVXLANEVPNTenantRoutedMulticast "ConfiguringVXLANEVPNTenantRoutedMulticast"
-[61]: #MultiSiteTRM "MultiSiteTRM"
-[62]: #OptimizedTRMwithDataMulticastDistributionTrees "OptimizedTRMwithDataMulticastDistributionTrees"
-[63]: #ImplementingVXLANEVPNTRMusingNDFC "ImplementingVXLANEVPNTRMusingNDFC"
-[64]: #NDFCOverview "NDFCOverview"
-[65]: #DeployingTRMusingNDFC "DeployingTRMusingNDFC"
-[66]: #Conclusion "Conclusion"
-[67]: #LegalInformation "LegalInformation"
-[68]: //www.cisco.com/go/trademarks

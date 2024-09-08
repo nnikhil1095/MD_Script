@@ -7,7 +7,7 @@ const path = require("path");
 const urlModule = require("url");
 
 const url =
-  "https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/vxlan/cisco-nexus-9000-series-nx-os-vxlan-configuration-guide-release-103x/m_configuring_tenant_routed_multicast_93x.html";
+  "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html";
 
 async function downloadImage(imageUrl, outputDir) {
   const urlObj = urlModule.parse(imageUrl);
