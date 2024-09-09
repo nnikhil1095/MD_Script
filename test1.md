@@ -1,59 +1,12 @@
+
+
 # Tenant Routed Multicast in Cisco Nexus 9000 VXLAN BGP EVPN Data Center Fabrics - Fundamental Concepts and Architectures
 
+Options
 
-
-Tenant Routed Multicast in Cisco Nexus 9000 VXLAN BGP EVPN Data Center Fabrics - Fundamental Concepts and Architectures
-=======================================================================================================================
-
-Save
-
-[Log in](/c/login/index.html?referer=/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html) to Save Content
-
-Download
-
-Print
-
-### Available Languages
-
-### Download Options
-
-*   [
+-   [
     
-    PDF](/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.pdf) (3.2 MB)  
-    View with Adobe Reader on a variety of devices
-    
-
-Updated:November 22, 2023
-
-Bias-Free Language
-
-### Bias-Free Language
-
-The documentation set for this product strives to use bias-free language. For the purposes of this documentation set, bias-free is defined as language that does not imply discrimination based on age, disability, gender, racial identity, ethnic identity, sexual orientation, socioeconomic status, and intersectionality. Exceptions may be present in the documentation due to language that is hardcoded in the user interfaces of the product software, language used based on RFP documentation, or language that is used by a referenced third-party product. [Learn more](https://www.cisco.com/c/en/us/about/social-justice/inclusive-language-policy.html) about how Cisco is using Inclusive Language.
-
-Contact Cisco
-
-*   [Open a TAC Case Online](https://mycase.cloudapps.cisco.com/case)
-*   US/Canada 800-553-2447
-*   [Worldwide Support Phone Numbers](//www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html)
-*   [All Tools](//www.cisco.com/c/en/us/support/web/tools-catalog.html)
-*   [!\[Feedback\](./images/Feedback\_OceanBlue.png) Feedback](https://ciscocx.qualtrics.com/jfe/form/SV_be0fHnqDoKM7sto?Ref=)
-
-Save
-
-[Log in](/c/login/index.html?referer=/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html) to Save Content
-
-Download
-
-Print
-
-### Available Languages
-
-### Download Options
-
-*   [
-    
-    PDF](/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.pdf) (3.2 MB)  
+    PDF][1] (3.2 MB)  
     View with Adobe Reader on a variety of devices
     
 
@@ -61,41 +14,41 @@ Updated:November 22, 2023
 
 #### Table of Contents
 
-*   [What you will learn?](#Whatyouwilllearn "Whatyouwilllearn")
-*   [Multicast Routing Fundamentals](#MulticastRoutingFundamentals "MulticastRoutingFundamentals")
-    *   [The Need for Multicast Routing](#TheNeedforMulticastRouting "TheNeedforMulticastRouting")
-    *   [Internet Group Management Protocol (IGMP)](#InternetGroupManagementProtocolIGMP "InternetGroupManagementProtocolIGMP")
-    *   [Protocol Independent Multicast (PIM)](#ProtocolIndependentMulticastPIM "ProtocolIndependentMulticastPIM")
-*   [Multicast Routing in VXLAN BGP EVPN Fabrics Without Tenant Routed Multicast](#MulticastRoutinginVXLANBGPEVPNFabricsWithoutTenantRoutedMulticast "MulticastRoutinginVXLANBGPEVPNFabricsWithoutTenantRoutedMulticast")
-    *   [Multicast in the Underlay](#MulticastintheUnderlay "MulticastintheUnderlay")
-    *   [Intra-Subnet Multicast in the Overlay](#IntraSubnetMulticastintheOverlay "IntraSubnetMulticastintheOverlay")
-    *   [IGMP Snooping in VXLAN BGP EVPN Fabrics](#IGMPSnoopinginVXLANBGPEVPNFabrics "IGMPSnoopinginVXLANBGPEVPNFabrics")
-    *   [Multicast Routing with External PIM Routers](#MulticastRoutingwithExternalPIMRouters "MulticastRoutingwithExternalPIMRouters")
-    *   [VXLAN Multicast Routing – Router on Stick](#VXLANMulticastRoutingRouteronStick "VXLANMulticastRoutingRouteronStick")
-*   [Introduction to BGP/MPLS Multicast VPNs (MVPN)](#IntroductiontoBGPMPLSMulticastVPNsMVPN "IntroductiontoBGPMPLSMulticastVPNsMVPN")
-*   [BGP/MPLS MVPN – Draft-Rosen](#BGPMPLSMVPNDraftRosen "BGPMPLSMVPNDraftRosen")
-*   [MP-BGP NG-MVPN](#MPBGPNGMVPN "MPBGPNGMVPN")
-    *   [Overview](#Overview "Overview")
-    *   [Control Plane Function](#ControlPlaneFunction "ControlPlaneFunction")
-    *   [Packet Types](#PacketTypes "PacketTypes")
-*   [VXLAN EVPN Tenant Routed Multicast Architecture](#VXLANEVPNTenantRoutedMulticastArchitecture "VXLANEVPNTenantRoutedMulticastArchitecture")
-    *   [TRM Modes](#TRMModes "TRMModes")
-        *   [Layer 3 Mode TRM](#Layer3ModeTRM "Layer3ModeTRM")
-        *   [Layer 2/3 Mode TRM](#Layer23ModeTRM "Layer23ModeTRM")
-    *   [L3 TRM PIM Rendezvous Point Placement](#L3TRMPIMRendezvousPointPlacement "L3TRMPIMRendezvousPointPlacement")
-        *   [Deployment Models](#DeploymentModels "DeploymentModels")
-    *   [L3 TRM Multicast Underlay Network](#L3TRMMulticastUnderlayNetwork "L3TRMMulticastUnderlayNetwork")
-    *   [L3 TRM Multicast Overlay Network](#L3TRMMulticastOverlayNetwork "L3TRMMulticastOverlayNetwork")
-    *   [L3 TRM with Anycast RP Control Plane Operation](#L3TRMwithAnycastRPControlPlaneOperation "L3TRMwithAnycastRPControlPlaneOperation")
-    *   [L3 TRM with External RP Control Plane Operation](#L3TRMwithExternalRPControlPlaneOperation "L3TRMwithExternalRPControlPlaneOperation")
-*   [Configuring VXLAN EVPN Tenant Routed Multicast](#ConfiguringVXLANEVPNTenantRoutedMulticast "ConfiguringVXLANEVPNTenantRoutedMulticast")
-*   [Multi-Site TRM](#MultiSiteTRM "MultiSiteTRM")
-*   [Optimized TRM with Data Multicast Distribution Trees](#OptimizedTRMwithDataMulticastDistributionTrees "OptimizedTRMwithDataMulticastDistributionTrees")
-*   [Implementing VXLAN EVPN TRM using NDFC](#ImplementingVXLANEVPNTRMusingNDFC "ImplementingVXLANEVPNTRMusingNDFC")
-    *   [NDFC Overview](#NDFCOverview "NDFCOverview")
-    *   [Deploying TRM using NDFC](#DeployingTRMusingNDFC "DeployingTRMusingNDFC")
-*   [Conclusion](#Conclusion "Conclusion")
-*   [Legal Information](#LegalInformation "LegalInformation")
+-   [What you will learn?][2]
+-   [Multicast Routing Fundamentals][3]
+    -   [The Need for Multicast Routing][4]
+    -   [Internet Group Management Protocol (IGMP)][5]
+    -   [Protocol Independent Multicast (PIM)][6]
+-   [Multicast Routing in VXLAN BGP EVPN Fabrics Without Tenant Routed Multicast][7]
+    -   [Multicast in the Underlay][8]
+    -   [Intra-Subnet Multicast in the Overlay][9]
+    -   [IGMP Snooping in VXLAN BGP EVPN Fabrics][10]
+    -   [Multicast Routing with External PIM Routers][11]
+    -   [VXLAN Multicast Routing – Router on Stick][12]
+-   [Introduction to BGP/MPLS Multicast VPNs (MVPN)][13]
+-   [BGP/MPLS MVPN – Draft-Rosen][14]
+-   [MP-BGP NG-MVPN][15]
+    -   [Overview][16]
+    -   [Control Plane Function][17]
+    -   [Packet Types][18]
+-   [VXLAN EVPN Tenant Routed Multicast Architecture][19]
+    -   [TRM Modes][20]
+        -   [Layer 3 Mode TRM][21]
+        -   [Layer 2/3 Mode TRM][22]
+    -   [L3 TRM PIM Rendezvous Point Placement][23]
+        -   [Deployment Models][24]
+    -   [L3 TRM Multicast Underlay Network][25]
+    -   [L3 TRM Multicast Overlay Network][26]
+    -   [L3 TRM with Anycast RP Control Plane Operation][27]
+    -   [L3 TRM with External RP Control Plane Operation][28]
+-   [Configuring VXLAN EVPN Tenant Routed Multicast][29]
+-   [Multi-Site TRM][30]
+-   [Optimized TRM with Data Multicast Distribution Trees][31]
+-   [Implementing VXLAN EVPN TRM using NDFC][32]
+    -   [NDFC Overview][33]
+    -   [Deploying TRM using NDFC][34]
+-   [Conclusion][35]
+-   [Legal Information][36]
 
  
 
@@ -117,19 +70,19 @@ The Need for Multicast Routing
 
 In computer networks, the transfer of packets between network devices is forwarded using unicast, broadcast, or multicast communication. A unicast packet is sent from a single source to a single receiver. In other words, unicast is one-to-one communication. A unicast Internet Protocol (IP) packet will have a source and destination address representing a single device.
 
-!\[A close-up of a packetDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_0.jpg)
+![A close-up of a packetDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_0.jpg)
 
 Figure 1.  Unicast Communication
 
 Broadcast communication happens when all the nodes in the network receive a packet from a single source. In other words, the broadcast is a one to all communication. A broadcast address in IP communication allows for broadcast communication within networks. The disadvantage of broadcast communication is that all nodes receive the packets even if applications in the node do not require it. The nodes that are interested in receiving the packet are called interested receivers. The interested receiver will process the packets while others will drop the packet at reception.
 
-!\[A picture containing text, screenshot, diagramDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_1.jpg)
+![A picture containing text, screenshot, diagramDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_1.jpg)
 
 Figure 2.  Broadcast Communication
 
 Multicast is a one-to-many communication method where only nodes interested in packets receive it. The packet stream going to a group of interested receivers is called a multicast stream and is identified by the destination IP multicast address. Receivers can be cable TV setup boxes that subscribe to channels. Each channel is mapped to a multicast address. Only the channels a receiver wants to view should be streamed to a cable TV setup box.
 
-!\[A picture containing text, screenshot, designDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_2.jpg)
+![A picture containing text, screenshot, designDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_2.jpg)
 
 Figure 3.  Multicast Communication
 
@@ -137,7 +90,7 @@ The advantage of multicast communication is that a single stream of packets is g
 
 Let’s discuss Ingress replication (IR). IR is a method to perform multicast forwarding. Like multicast communication using IP multicast groups, IR sends packets only to interested receivers using unicast copies of the same packet.
 
-!\[A picture containing text, screenshot, diagramDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_3.jpg)
+![A picture containing text, screenshot, diagramDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_3.jpg)
 
 Figure 4.  Ingress Replication
 
@@ -151,7 +104,7 @@ Internet Group Management Protocol (IGMP)
 
 The IGMP protocol function manages multicast group subscriptions on the last hop router (LHR), also called the querier. The LHR is the router attached to the receivers, while the First Hop Router (FHR) is the router attached to the source of the multicast stream. The LHR sends query messages on each network segment to discover any hosts interested in any or specific multicast group stream. LHR router sends query messages periodically, usually every 60 seconds, to the All-Host multicast group of 224.0.0.1. A host reports interest in a multicast group using the IGMP report message using IGMP reserved multicast group address 224.0.0.22. LHR prunes the forwarding of any multicast stream on any network segment with no interested receivers.
 
-!\[A picture containing text, screenshot, diagram, lineDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_4.jpg)
+![A picture containing text, screenshot, diagram, lineDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_4.jpg)
 
 Figure 5.  LHR IGMP Query
 
@@ -187,7 +140,7 @@ The types of implementations define the multicast routing topology for the multi
 
 The shared tree has a reference point called the Rendezvous Point (RP) which acts as a root of the multicast distribution tree. The RP is the initial meeting point for the source and receivers of a multicast group. Every multicast router in the network knows about the RP. The RP maintains in its multicast routing information base (MRIB) the path to the source of a multicast group and interested receivers. The path to the source of a multicast group is stored as (S, G) entries in the MRIB. The (S, G) is a state in a router for a specific source S to a multicast group G. The (S, G) is a state that represents a source tree. The RP will maintain entries for all sources that have registered with the RP. The incoming interface list (IIL) in an (S, G) source tree is always toward the source. The outgoing interface list (OIF) is towards the receivers learned through a PIM join or IGMP membership report.
 
-!\[A picture containing text, screenshot, diagram, lineDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_5.jpg)
+![A picture containing text, screenshot, diagram, lineDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_5.jpg)
 
 Figure 6.  PIM-SM Shared Tree
 
@@ -219,7 +172,7 @@ Last reporter: 192.168.1.2
 
 The PIM-SSM protocol learns the source information from IGMPv3 and signals a source tree directly toward the FHR, forming an optimal multicast distribution tree. In PIM-SSM, as information and location of the source are known, there is no requirement for an RP. An (S, G) route entry state is maintained for each multicast group's unique source.
 
-!\[Related image, diagram or screenshot\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_6.jpg)
+![Related image, diagram or screenshot](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_6.jpg)
 
 Figure 7.  PIM-SSM Source Tree.
 
@@ -231,7 +184,7 @@ In VXLAN BGP EVPN fabrics, routing protocols are run in two networking IP addres
 
 Any tenant's unicast and multicast traffic is encapsulated inside a logical VXLAN tunnel that provides both routing and switching in a VXLAN fabric. The tunnel is called a Network Virtualization Edge (NVE) interface on Cisco Nexus 9000 NX-OS switches. The VXLAN interfaces exist on edge devices known as Virtual Tunnel Endpoints (VTEP). The signaling of the overlay tunnel is managed by the overlay control plane protocol. In a VXLAN BGP EVPN fabric, the BGP EVPN is the control plane for signaling the VXLAN tunnel and distributing both layer 2 and layer 3 routing information (host IP, MAC, and IP prefixes) for unicast routing. All the routes distributed via overlay protocols are for tenant systems in the VRFs attached to each edge device. VXLAN tunnels forward traffic between tenant systems members of each VRF over the underlay network. Each VRF in the overlay is identified by a Virtual Network Identifier (VNI).
 
-!\[Related image, diagram or screenshot\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_7.jpg)
+![Related image, diagram or screenshot](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_7.jpg)
 
 Figure 8.  VXLAN Routing Architecture
 
@@ -275,7 +228,7 @@ The PIM Sparse Mode uses PIM Anycast RP (RFC 4610) for RP redundancy and sharing
 
 The topology and sample configuration elaborate PIM configuration on the leaf and spine switches with PIM Anycast-RP.
 
-!\[A picture containing text, screenshot, clock, designDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_8.jpg)
+![A picture containing text, screenshot, clock, designDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_8.jpg)
 
 Figure 9.  PIM Anycast-RP
 
@@ -311,7 +264,7 @@ PIM ASM Bidir uses phantom RP as its RP redundancy mechanism. The phantom RP pro
 
 The topology and sample configuration elaborate on how PIM is configured on the leaf and spine switches with PIM Phantom-RP.
 
-!\[A picture containing text, screenshot, line, designDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_9.jpg)
+![A picture containing text, screenshot, line, designDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_9.jpg)
 
 Figure 10.  PIM Phantom-RP
 
@@ -427,7 +380,7 @@ IGMP Snooping in VXLAN BGP EVPN Fabrics
 
 A VXLAN BGP EVPN fabric without IGMP snooping enabled will flood overlay multicast traffic to all the remote VTEP members of the same L2VNI using the L2VNI’s underlay multicast group. The multicast forwarding behavior should be analyzed from the location of the source and receivers. The diagram below shows an example fabric with the source and receivers in VLAN 10 subnet attached to VTEP L1 without any remote receivers.
 
-!\[Related image, diagram or screenshot\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_10.jpg)
+![Related image, diagram or screenshot](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_10.jpg)
 
 Figure 11.  Multicast Forwarding without IGMP Snooping
 
@@ -449,13 +402,13 @@ Vlan  Group Address      Ver  Type          Port        l
 
 The multicast traffic forwarding behavior in VLAN 10 subnet with IGMP snooping enabled is depicted in the below diagram.
 
-!\[A diagram of a networkDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_11.jpg)
+![A diagram of a networkDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_11.jpg)
 
 Figure 12.  IGMP Snooping Enabled Multicast Forwarding with local receiver
 
 L1 is the only node with a receiver R1 in VLAN 10. The source S1 is also attached to the L1 node in VLAN 10. In this case, the multicast traffic is only locally switched as there are no receivers on the remote VTEPs L2, L3, and L4. Pruning is available for locally switched and VXLAN traffic because there are no interested receivers on any remote VTEPs. The moment a second receiver, R2, is attached to remote VTEP L3. The VTEP L3 receives an IGMP Join, which is flooded inside the VLAN 10. When enabling IGMP snooping for VXLAN, the NVE interface also functions as a multicast router interface. The NVE interface encapsulates the IGMP join and floods the IGMP join inside the L2 VNI underlay multicast group mapped to VLAN 10. The VTEP L1 receives the IGMP join, triggering the NVE interface on VTEP L1 to program its NVE interface as an OIF for multicast group 239.1.1.1 Multicast traffic is VXLAN encapsulated and forwarded in the L2 VNI multicast group to all remote VTEPs with VLAN 10 provisioned, as shown in the below diagram.
 
-!\[A diagram of a networkDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_12.jpg)
+![A diagram of a networkDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_12.jpg)
 
 Figure 13.  IGMP Snooping Enabled Multicast Forwarding with remove receiver
 
@@ -523,7 +476,7 @@ In earlier days of ethernet networking, when switches were first introduced as t
 
 The layer 2 switch attaches to a router using a trunk port. The router has a single physical interface logically segmented into multiple sub-interfaces called dot1q sub-interface. Each dot1q sub-interface can process tagged traffic for a specific VLAN and acts as a gateway for the subnet assigned to the VLAN.
 
-!\[Related image, diagram or screenshot\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_13.jpg)
+![Related image, diagram or screenshot](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_13.jpg)
 
 Figure 14.  Unicast Routing – Router on Stick
 
@@ -553,7 +506,7 @@ BGP/MPLS Layer 3 VPNs gained popularity in connecting enterprise sites through a
 
 Both solutions achieve the same end goal: route multicast packets within a VPN across sites through a shared infrastructure. A few basic terminologies that are common to both multicast VPN solutions need to be defined.
 
-!\[A diagram of a cloud networkDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_14.jpg)
+![A diagram of a cloud networkDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_14.jpg)
 
 Figure 15.  Multicast Domains in MPLS VPNs
 
@@ -603,7 +556,7 @@ The industry addressed this problem by relying on MP-BGP and creating a new addr
 
 The VXLAN BGP EVPN fabric is a multitenant overlay network allowing for segmentation using MP-BGP EVPN as the control plane protocol and VXLAN as the data plane protocol for unicast routing. The data center is the hosting location for all types of applications, including collaboration, video streaming, and multimedia which all require multicast routing. Some tenants in the data center may require multicast routing to support their applications. A VPN refers to a VRF that can route unicast packets between edge devices, such as a VTEP in the data center or a provider edge (PE) node in the service provider core network. A Multicast VPN (MVPN) is a VRF that can route unicast and multicast traffic. Multicast protocols such as PIM require unicast routing for connectivity to source, RP, and RPFs checks for loop avoidance.
 
-!\[A diagram of a networkDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_15.jpg)
+![A diagram of a networkDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_15.jpg)
 
 Figure 16.  NG-MVPN Concepts
 
@@ -679,7 +632,7 @@ The layer 2/3 mode was created to support specific use cases such as migration a
 
 In planning for layer 3 TRM mode implementations, several guidelines must be considered. Firstly, TRM always uses an always-route approach to forward any tenant multicast traffic in the overlay. When TRM is enabled in any VTEP, all multicast traffic in the overlay will be routed using the default MDT if data MDT is not deployed, and TTL is decremented by 1 at the FHR and LHR, even if the source and receivers are in the same subnet.  The below diagram illustrates how the TTL decrements at the source and destination VTEPs of routed multicast traffic in the overlay.
 
-!\[A diagram of a computer networkDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_16.jpg)
+![A diagram of a computer networkDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_16.jpg)
 
 Figure 17.  Layer 3 TRM Mode Always Route Approach
 
@@ -703,7 +656,7 @@ The RP in the overlay supports three deployment models.
 
 The first model is the internal RP (RP-less) or Anycast RP. The overlay Anycast RP deployment model is drawn in the below image.
 
-!\[A diagram of a cloudDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_17.png)
+![A diagram of a cloudDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_17.png)
 
 Figure 18.  Overlay RP-Less or Anycast RP Deployment Model
 
@@ -729,7 +682,7 @@ The “**advertise-pip**” command will advertise the external RP address learn
 
 The border leaf nodes use VRF-lite to extend the tenant VRFs to the external PIM-enabled infrastructure. The border leaf establishes a PIM neighbor relationship in that VRF with the external PIM router.
 
-!\[A screenshot of a video gameDescription automatically generated with medium confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_18.png)
+![A screenshot of a video gameDescription automatically generated with medium confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_18.png)
 
 Figure 19.  Overlay External RP Deployment Model
 
@@ -739,7 +692,7 @@ The final overlay RP deployment model is RP Everywhere.
 
 The diagram below illustrates the RP Everywhere deployment model.
 
-!\[A picture containing text, diagram, line, screenshotDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_19.jpg)
+![A picture containing text, diagram, line, screenshotDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_19.jpg)
 
 Figure 20.  Overlay RP Everywhere Deployment Model
 
@@ -749,7 +702,7 @@ This deployment model supports migration scenarios where an external RP already 
 
 L3 TRM Multicast Underlay Network
 
-!\[A picture containing text, screenshot, diagram, fontDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_20.jpg)
+![A picture containing text, screenshot, diagram, fontDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_20.jpg)
 
 Figure 21.  Underlay Multicast Components and States
 
@@ -767,7 +720,7 @@ Looking at the above figure, the VRF created has an L3 VNI of 50999. The default
 
 L3 TRM Multicast Overlay Network
 
-!\[A picture containing text, screenshot, graphics, fontDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_21.png)
+![A picture containing text, screenshot, graphics, fontDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_21.png)
 
 Figure 22.  Overlay Multicast Components and States
 
@@ -785,7 +738,7 @@ L3 TRM with Anycast RP Control Plane Operation
 
 The exchange of the NGMVPN control plane packets to connect sources and receivers within a VXLAN EVPN TRM fabric in L3 mode with Anycast RP is explained in the below diagram and description.
 
-!\[A picture containing text, screenshot, graphicsDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_22.png)
+![A picture containing text, screenshot, graphicsDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_22.png)
 
 Figure 23.  TRM L3 Mode Anycast RP NGMVPN Packet Walk
 
@@ -805,7 +758,7 @@ L3 TRM with External RP Control Plane Operation
 
 The control plane signaling with external RP requires using an MVPN Type 6 Shared Tree Join packet to interconnect hosts in the external network to hosts in the fabric. The below diagram and description explain the control plane operation in a VXLAN EVPN TRM fabric in L3 mode with external RP.
 
-!\[A picture containing text, screenshot, diagram, fontDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_23.jpg)
+![A picture containing text, screenshot, diagram, fontDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_23.jpg)
 
 Figure 24.  TRM L3 Mode External RP NGMVPN Packet Walk
 
@@ -1119,7 +1072,7 @@ A TRM-enabled network requires each fabric site to run PIM Sparse Mode as the IP
 
 The Multisite TRM with DCI IR core architecture using anycast BGWs is presented in the below topology diagram.
 
-!\[A screenshot of a computerDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_24.jpg)
+![A screenshot of a computerDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_24.jpg)
 
 Figure 25.  Anycast BGWs Multisite TRM with DCI IR Core
 
@@ -1151,7 +1104,7 @@ Enable optimized IR for multisite BUM traffic for the L3VNI.
 
 The next supported multisite TRM architecture is with anycast BGWs but with underlay multicast in the DCI core network.
 
-!\[A screenshot of a computerDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_25.jpg)
+![A screenshot of a computerDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_25.jpg)
 
 Figure 26.  Anycast BGW Multisite TRM with DCI Multicast Core
 
@@ -1175,13 +1128,13 @@ Enable DCI multicast core for multisite BUM traffic for the L3VNI.
 
 The multisite TRM with vPC BGW and DCI IR core architecture is depicted below with the packet headers for cross-site multicast traffic. The outer source IP address is the BGW Multisite Virtual IP address (vPC1-VIP), while the outer destination IP address is set to the remote site Multisite Virtual IP address (MS2-VIP).
 
-!\[A screenshot of a computerDescription automatically generated with low confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_26.jpg)
+![A screenshot of a computerDescription automatically generated with low confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_26.jpg)
 
 Figure 27.  vPC BGW Multisite TRM with DCI IR Core
 
 The multisite TRM with vPC BGW and DCI Multicast core architecture is depicted below with the packet headers for cross-site multicast traffic. The outer source IP address is the BGW Multisite Virtual IP address (vPC1-VIP), while the outer destination IP address is set to the DCI core underlay multicast group address (DCI-Core-G).
 
-!\[A picture containing text, diagram, screenshot, mapDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_27.jpg)
+![A picture containing text, diagram, screenshot, mapDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_27.jpg)
 
 Figure 28.  vPC BGW Multisite TRM with DCI Multicast Core
 
@@ -1191,7 +1144,7 @@ TRM addresses the multicast routing problem, connecting sources and receivers in
 
 The scenario below explains the problem statement and solution.
 
-!\[A picture containing diagram, text, screenshot, lineDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_28.jpg)
+![A picture containing diagram, text, screenshot, lineDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_28.jpg)
 
 Figure 29.  TRM Data MDT
 
@@ -1227,7 +1180,7 @@ NDFC Overview
 
 Nexus Dashboard Fabric Controller (NDFC) provides complete data center life cycle management from day 0 to day 2 for Nexus NX-OS switches. NDFC provides configuration management, switch software and hardware life cycle management, inventory management, troubleshooting, and device monitoring capabilities.
 
-!\[A screenshot of a computerDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_29.png)
+![A screenshot of a computerDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_29.png)
 
 Figure 30.  NDFC Topology View
 
@@ -1249,9 +1202,9 @@ Multiple form factors and scale support
 
 The two form factors available for NDFC are virtual ND and physical ND. The form factors and their scales are summarized in the below table as per the current release of NDFC 12.1.2.
 
-!\[Related image, diagram or screenshot\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_30.png)
+![Related image, diagram or screenshot](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_30.png)
 
-!\[A screenshot of a computerDescription automatically generated with medium confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_31.png)
+![A screenshot of a computerDescription automatically generated with medium confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_31.png)
 
 Figure 31.  NDFC form factor and scale table
 
@@ -1263,7 +1216,7 @@ NDFC automates the provisioning of VXLAN BGP EVPN fabrics for unicast and multic
 
 NDFC templates provide options to enable TRM per fabric and specify the default MDT multicast group range. Currently, the release of NDFC 12.1.2e does not support data MDT. Enabling TRM at the fabric level creates a global level and BGP routing process configurations for the fabric nodes, such as enabling the “ngmvpn feature”, “vxlan igmp snooping”, as well as “ip multicast overlay-spt-only”. The MVPN peering is configured between the spine and leaf switches. The multicast address for TRM default MDT must fall within the Multicast Group Subnet.
 
-!\[Related image, diagram or screenshot\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_32.png)
+![Related image, diagram or screenshot](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_32.png)
 
 Figure 32.  NDFC enables TRM on the fabric
 
@@ -1275,7 +1228,7 @@ The VRF level configurations for TRM include configuring PIM on the L3 VNI SVI, 
 
 The “Overlay Multicast Groups” field specifies the multicast group subnet for the specified RP. The value is the multicast group range in the **ip pim rp-address** command. This field is optional. If the field is empty, 224.0.0.0/24 is used as default.
 
-!\[A screenshot of a computerDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_33.png)
+![A screenshot of a computerDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_33.png)
 
 Figure 33.  NDFC enables TRM on the VRF
 
@@ -1283,7 +1236,7 @@ Figure 33.  NDFC enables TRM on the VRF
 
 The L2 VNI SVIs are the default gateway for all sources and receivers attached to VTEPs. Enabling TRM under the network enables PIM on the L2 VNI SVI. A PIM neighbor None\* policy is also added to prevent PIM neighborship peering on the L2 VNI SVI using the anycast gateway IP address.
 
-!\[A screenshot of a computerDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_34.png)
+![A screenshot of a computerDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_34.png)
 
 Figure 34.  NDFC enables TRM on the network
 
@@ -1303,7 +1256,7 @@ Once the Multisite VXLAN EVPN fabric is operational, NDFC can extend your overla
 
 ◦    Configure multisite ingress replication optimized to enable BUM ingress replication under the NVE interface for the L3VNI.
 
-!\[A screenshot of a computerDescription automatically generated with medium confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_35.png)
+![A screenshot of a computerDescription automatically generated with medium confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_35.png)
 
 Figure 35.  NDFC enables TRM on the BGW
 
@@ -1313,13 +1266,13 @@ The MSD fabric in NDFC is a policy container to manage configuration for multipl
 
 To enable TRM on the MSD fabric to MP-BGP MVPN initiate peering between BGW devices in the member fabric and core routers/route servers, navigate to MSD fabric page-> select Links tab-> select the “ext\_evpn\_multisite\_overlay\_setup” link policy for specific Fabric and choose Edit from the drop-down as shown below.
 
-!\[A screenshot of a computerDescription automatically generated with medium confidence\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_36.png)
+![A screenshot of a computerDescription automatically generated with medium confidence](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_36.png)
 
 Figure 36.  Edit NDFC Multisite policy on MSD fabric
 
 The final step would be enabling TRM under the link policy's General Parameters tab.
 
-!\[A screenshot of a computerDescription automatically generated\](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics\_37.png)
+![A screenshot of a computerDescription automatically generated](./images/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics_37.png)
 
 Figure 37.  Enable TRM under MSD link policy
 
@@ -1347,10 +1300,48 @@ Nexus 9000 NX-OS TRM brings a variety of advantages, like:
 
 Legal Information
 
-Cisco and the Cisco logo are trademarks or registered trademarks of Cisco and/or its affiliates in the U.S. and other countries. To view a list of Cisco trademarks, go to this URL: [www.cisco.com/go/trademarks](//www.cisco.com/go/trademarks). Third-party trademarks mentioned are the property of their respective owners. The use of the word partner does not imply a partnership relationship between Cisco and any other company. (1721R)
+Cisco and the Cisco logo are trademarks or registered trademarks of Cisco and/or its affiliates in the U.S. and other countries. To view a list of Cisco trademarks, go to this URL: [www.cisco.com/go/trademarks][37]. Third-party trademarks mentioned are the property of their respective owners. The use of the word partner does not imply a partnership relationship between Cisco and any other company. (1721R)
 
 Any Internet Protocol (IP) addresses and phone numbers used in this document are not intended to be actual addresses and phone numbers. Any examples, command display output, network topology diagrams, and other figures included in the document are shown for illustrative purposes only. Any use of actual IP addresses or phone numbers in illustrative content is unintentional and coincidental.
 
 © 2023 Cisco Systems, Inc. All rights reserved.
 
 ### Learn more
+
+[1]: /c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.pdf
+[2]: #Whatyouwilllearn "Whatyouwilllearn"
+[3]: #MulticastRoutingFundamentals "MulticastRoutingFundamentals"
+[4]: #TheNeedforMulticastRouting "TheNeedforMulticastRouting"
+[5]: #InternetGroupManagementProtocolIGMP "InternetGroupManagementProtocolIGMP"
+[6]: #ProtocolIndependentMulticastPIM "ProtocolIndependentMulticastPIM"
+[7]: #MulticastRoutinginVXLANBGPEVPNFabricsWithoutTenantRoutedMulticast "MulticastRoutinginVXLANBGPEVPNFabricsWithoutTenantRoutedMulticast"
+[8]: #MulticastintheUnderlay "MulticastintheUnderlay"
+[9]: #IntraSubnetMulticastintheOverlay "IntraSubnetMulticastintheOverlay"
+[10]: #IGMPSnoopinginVXLANBGPEVPNFabrics "IGMPSnoopinginVXLANBGPEVPNFabrics"
+[11]: #MulticastRoutingwithExternalPIMRouters "MulticastRoutingwithExternalPIMRouters"
+[12]: #VXLANMulticastRoutingRouteronStick "VXLANMulticastRoutingRouteronStick"
+[13]: #IntroductiontoBGPMPLSMulticastVPNsMVPN "IntroductiontoBGPMPLSMulticastVPNsMVPN"
+[14]: #BGPMPLSMVPNDraftRosen "BGPMPLSMVPNDraftRosen"
+[15]: #MPBGPNGMVPN "MPBGPNGMVPN"
+[16]: #Overview "Overview"
+[17]: #ControlPlaneFunction "ControlPlaneFunction"
+[18]: #PacketTypes "PacketTypes"
+[19]: #VXLANEVPNTenantRoutedMulticastArchitecture "VXLANEVPNTenantRoutedMulticastArchitecture"
+[20]: #TRMModes "TRMModes"
+[21]: #Layer3ModeTRM "Layer3ModeTRM"
+[22]: #Layer23ModeTRM "Layer23ModeTRM"
+[23]: #L3TRMPIMRendezvousPointPlacement "L3TRMPIMRendezvousPointPlacement"
+[24]: #DeploymentModels "DeploymentModels"
+[25]: #L3TRMMulticastUnderlayNetwork "L3TRMMulticastUnderlayNetwork"
+[26]: #L3TRMMulticastOverlayNetwork "L3TRMMulticastOverlayNetwork"
+[27]: #L3TRMwithAnycastRPControlPlaneOperation "L3TRMwithAnycastRPControlPlaneOperation"
+[28]: #L3TRMwithExternalRPControlPlaneOperation "L3TRMwithExternalRPControlPlaneOperation"
+[29]: #ConfiguringVXLANEVPNTenantRoutedMulticast "ConfiguringVXLANEVPNTenantRoutedMulticast"
+[30]: #MultiSiteTRM "MultiSiteTRM"
+[31]: #OptimizedTRMwithDataMulticastDistributionTrees "OptimizedTRMwithDataMulticastDistributionTrees"
+[32]: #ImplementingVXLANEVPNTRMusingNDFC "ImplementingVXLANEVPNTRMusingNDFC"
+[33]: #NDFCOverview "NDFCOverview"
+[34]: #DeployingTRMusingNDFC "DeployingTRMusingNDFC"
+[35]: #Conclusion "Conclusion"
+[36]: #LegalInformation "LegalInformation"
+[37]: //www.cisco.com/go/trademarks
