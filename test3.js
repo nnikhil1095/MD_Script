@@ -95,68 +95,54 @@ axios
     tocCandidates.forEach((element) => {
       const textLength = element.textContent.length;
       if (textLength > 20) {
-        toc = turndownService.turndown(element.outerHTML);
+        // Basic check to ensure it's not empty or trivial
+        toc = turndownService.turndown(element.outerHTML); // Convert ToC to Markdown
       }
     });
 
-    // Extract the largest main content block (like article, main, section)
-    const contentCandidates = document.querySelectorAll(
-      "article, main, section, div"
+    // Extract the main content by targeting specific elements
+    // We attempt to find common tags for the main content like 'article', 'main', 'section', etc.
+    const mainContent = document.querySelector(
+      "article, main, section, .content"
     );
-    let largestContent = null;
-    let largestSize = 0;
+    let markdownContent = "";
 
-    contentCandidates.forEach((element) => {
-      const textLength = element.textContent.length;
-      if (textLength > largestSize) {
-        largestSize = textLength;
-        largestContent = element;
-      }
-    });
-
-    const mainContent = largestContent || document.body;
-
-    // Only keep relevant main content (nothing between title and ToC)
-    const filteredMainContent = mainContent.outerHTML.replace(
-      /Save.*Download/gs,
-      ""
-    );
-
-    // Prepare relevant content by combining ToC and main content
-    let relevantContent = filteredMainContent;
-
-    // Process images: Download images and convert image tags to Markdown format
-    const images = document.querySelectorAll("img");
-    for (const img of images) {
-      const src = img.getAttribute("src");
-      if (src) {
-        const alt = img.getAttribute("alt") || "Image";
-        const imageUrl = new URL(src, url).href;
-        const filename = await downloadImage(imageUrl, imageDir);
-        if (filename) {
-          const markdownImage = `![${alt}](./images/${filename})`;
-          const imgElement = document.createElement("span");
-          imgElement.textContent = markdownImage;
-          img.replaceWith(imgElement);
-        } else {
-          const markdownImage = `![${alt}](${src})`;
-          const imgElement = document.createElement("span");
-          imgElement.textContent = markdownImage;
-          img.replaceWith(imgElement);
+    if (mainContent) {
+      // Process images: Download images and convert image tags to Markdown format
+      const images = mainContent.querySelectorAll("img");
+      for (const img of images) {
+        const src = img.getAttribute("src");
+        if (src) {
+          const alt = img.getAttribute("alt") || "Image";
+          const imageUrl = new URL(src, url).href;
+          const filename = await downloadImage(imageUrl, imageDir);
+          if (filename) {
+            const markdownImage = `![${alt}](./images/${filename})`;
+            const imgElement = document.createElement("span");
+            imgElement.textContent = markdownImage;
+            img.replaceWith(imgElement);
+          } else {
+            const markdownImage = `![${alt}](${src})`;
+            const imgElement = document.createElement("span");
+            imgElement.textContent = markdownImage;
+            img.replaceWith(imgElement);
+          }
         }
       }
+
+      // Convert the main content to Markdown
+      markdownContent = turndownService.turndown(mainContent.outerHTML);
+    } else {
+      markdownContent = "\n\n*No main content found.*\n\n";
     }
 
-    // Convert the relevant HTML content to Markdown
-    const markdownContent = turndownService.turndown(relevantContent);
-
-    // Combine the title, table of contents, and main content
+    // Combine the title, ToC, and main content
     const finalMarkdown = `${title}${
-      toc ? "## Table of Contents\n" + toc : ""
+      toc ? "\n## Table of Contents\n" + toc : ""
     }\n\n${markdownContent}`;
 
-    // Save the Markdown to a file
-    fs.writeFile("test12.md", finalMarkdown, (err) => {
+    // Save the Markdown to a file (replace 'output.md' with your desired file path)
+    fs.writeFile("test4.md", finalMarkdown, (err) => {
       if (err) {
         console.error("Error writing the Markdown file:", err);
       } else {
